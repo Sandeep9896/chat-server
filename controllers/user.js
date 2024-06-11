@@ -15,7 +15,7 @@ import { ErrorHandler } from "../utils/utility.js";
 
 // Create a new user and save it to the database and save token in cookie
 const newUser = TryCatch(async (req, res, next) => {
-  const { name, username, password, bio } = req.body;
+  const { name, username, password, bio,email } = req.body;
 
   const file = req.file;
 
@@ -34,6 +34,7 @@ const newUser = TryCatch(async (req, res, next) => {
     username,
     password,
     avatar,
+    email
   });
 
   sendToken(res, user, 201, "User created");
